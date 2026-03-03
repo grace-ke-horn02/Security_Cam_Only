@@ -7,11 +7,13 @@
 /* Global variables */
 typedef struct {
 	int x_data;
+	int y_data;
+	int z_data;
 } accelData_s;
 
 
 /* Global Functions */
-void accelerometerInitialization(void);
+int accelerometerInitialization(void);
 accelData_s getAccelerometerData(void); //	Need to figure out what kind of data structure I want for this
 
 
