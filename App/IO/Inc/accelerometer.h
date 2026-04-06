@@ -6,9 +6,9 @@
 
 /* Global variables */
 typedef struct {
-	int x_data;
-	int y_data;
-	int z_data;
+	float x_data;
+	float y_data;
+	float z_data;
 } accelData_s;
 
 
@@ -18,4 +18,3 @@ accelData_s getAccelerometerData(void); //	Need to figure out what kind of data 
 
 
 #endif __ACCELEROMETER_H
-

@@ -12,7 +12,8 @@
 // enum for status
 typedef enum {
 	ERROR_STATUS	= 0U,
-	INITIALIZED		= 1U
+	INITIALIZATION_FAILED = 1U,
+	INITIALIZED		= 2U
 } statusDefinition_enum;
 
 #endif /* CMDPROCESSING_INC_STATUS_H_ */

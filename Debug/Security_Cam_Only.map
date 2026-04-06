@@ -38,6 +38,10 @@ Archive member included to satisfy reference by file (symbol)
                               /opt/st/stm32cubeide_1.19.0/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.13.3.rel1.linux64_1.0.0.202410170706/tools/bin/../lib/gcc/arm-none-eabi/13.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libc_nano.a(libc_a-findfp.o) (_fflush_r)
 /opt/st/stm32cubeide_1.19.0/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.13.3.rel1.linux64_1.0.0.202410170706/tools/bin/../lib/gcc/arm-none-eabi/13.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libc_nano.a(libc_a-sbrkr.o)
                               /opt/st/stm32cubeide_1.19.0/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.13.3.rel1.linux64_1.0.0.202410170706/tools/bin/../lib/gcc/arm-none-eabi/13.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libc_nano.a(libc_a-mallocr.o) (_sbrk_r)
+/opt/st/stm32cubeide_1.19.0/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.13.3.rel1.linux64_1.0.0.202410170706/tools/bin/../lib/gcc/arm-none-eabi/13.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libm.a(libm_a-wf_sqrt.o)
+                              ./App/IO/Src/accelerometer.o (sqrtf)
+/opt/st/stm32cubeide_1.19.0/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.13.3.rel1.linux64_1.0.0.202410170706/tools/bin/../lib/gcc/arm-none-eabi/13.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libm.a(libm_a-ef_sqrt.o)
+                              /opt/st/stm32cubeide_1.19.0/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.13.3.rel1.linux64_1.0.0.202410170706/tools/bin/../lib/gcc/arm-none-eabi/13.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libm.a(libm_a-wf_sqrt.o) (__ieee754_sqrtf)
 /opt/st/stm32cubeide_1.19.0/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.13.3.rel1.linux64_1.0.0.202410170706/tools/bin/../lib/gcc/arm-none-eabi/13.3.1/thumb/v7e-m+fp/hard/libgcc.a(_aeabi_uldivmod.o)
                               ./Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_rcc.o (__aeabi_uldivmod)
 /opt/st/stm32cubeide_1.19.0/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.13.3.rel1.linux64_1.0.0.202410170706/tools/bin/../lib/gcc/arm-none-eabi/13.3.1/thumb/v7e-m+fp/hard/libgcc.a(_udivmoddi4.o)
@@ -162,14 +166,41 @@ Discarded input sections
  .group         0x00000000        0xc ./App/IO/Src/accelerometer.o
  .group         0x00000000        0xc ./App/IO/Src/accelerometer.o
  .group         0x00000000        0xc ./App/IO/Src/accelerometer.o
+ .group         0x00000000        0xc ./App/IO/Src/accelerometer.o
  .text          0x00000000        0x0 ./App/IO/Src/accelerometer.o
  .data          0x00000000        0x0 ./App/IO/Src/accelerometer.o
  .bss           0x00000000        0x0 ./App/IO/Src/accelerometer.o
- .debug_info    0x00000000       0x70 ./App/IO/Src/accelerometer.o
- .debug_abbrev  0x00000000       0x28 ./App/IO/Src/accelerometer.o
+ .bss.xAxisData
+                0x00000000       0x10 ./App/IO/Src/accelerometer.o
+ .bss.yAxisData
+                0x00000000       0x10 ./App/IO/Src/accelerometer.o
+ .bss.zAxisData
+                0x00000000       0x10 ./App/IO/Src/accelerometer.o
+ .data.p_xAxisData
+                0x00000000        0x4 ./App/IO/Src/accelerometer.o
+ .data.p_yAxisData
+                0x00000000        0x4 ./App/IO/Src/accelerometer.o
+ .data.p_zAxisData
+                0x00000000        0x4 ./App/IO/Src/accelerometer.o
+ .data.accelerometerConfig
+                0x00000000        0x8 ./App/IO/Src/accelerometer.o
+ .text.accelerometerInitialization
+                0x00000000      0x27c ./App/IO/Src/accelerometer.o
+ .text.getAccelerometerData
+                0x00000000       0x60 ./App/IO/Src/accelerometer.o
+ .text.CompareAccelConfigStructs
+                0x00000000       0xa8 ./App/IO/Src/accelerometer.o
+ .text.GetAccelBasis
+                0x00000000      0x398 ./App/IO/Src/accelerometer.o
+ .text.readFifoBuffer
+                0x00000000      0x424 ./App/IO/Src/accelerometer.o
+ .debug_info    0x00000000      0xe6b ./App/IO/Src/accelerometer.o
+ .debug_abbrev  0x00000000      0x252 ./App/IO/Src/accelerometer.o
  .debug_aranges
-                0x00000000       0x18 ./App/IO/Src/accelerometer.o
- .debug_macro   0x00000000      0x236 ./App/IO/Src/accelerometer.o
+                0x00000000       0x40 ./App/IO/Src/accelerometer.o
+ .debug_rnglists
+                0x00000000       0x2f ./App/IO/Src/accelerometer.o
+ .debug_macro   0x00000000      0x2fb ./App/IO/Src/accelerometer.o
  .debug_macro   0x00000000      0xad8 ./App/IO/Src/accelerometer.o
  .debug_macro   0x00000000      0x2b3 ./App/IO/Src/accelerometer.o
  .debug_macro   0x00000000       0x2e ./App/IO/Src/accelerometer.o
@@ -220,9 +251,11 @@ Discarded input sections
  .debug_macro   0x00000000       0x53 ./App/IO/Src/accelerometer.o
  .debug_macro   0x00000000      0x2aa ./App/IO/Src/accelerometer.o
  .debug_macro   0x00000000      0x126 ./App/IO/Src/accelerometer.o
- .debug_line    0x00000000      0x785 ./App/IO/Src/accelerometer.o
- .debug_str     0x00000000    0xde523 ./App/IO/Src/accelerometer.o
+ .debug_macro   0x00000000       0x22 ./App/IO/Src/accelerometer.o
+ .debug_line    0x00000000      0xbb0 ./App/IO/Src/accelerometer.o
+ .debug_str     0x00000000    0xdf196 ./App/IO/Src/accelerometer.o
  .comment       0x00000000       0x44 ./App/IO/Src/accelerometer.o
+ .debug_frame   0x00000000       0xf4 ./App/IO/Src/accelerometer.o
  .ARM.attributes
                 0x00000000       0x34 ./App/IO/Src/accelerometer.o
  .group         0x00000000        0xc ./App/IO/Src/light_sensor.o
@@ -677,6 +710,21 @@ Discarded input sections
  .comment       0x00000000       0x44 ./App/IO/Src/temp_humidity.o
  .ARM.attributes
                 0x00000000       0x34 ./App/IO/Src/temp_humidity.o
+ .group         0x00000000        0xc ./App/Utilities/Src/bit_manipulation.o
+ .text          0x00000000        0x0 ./App/Utilities/Src/bit_manipulation.o
+ .data          0x00000000        0x0 ./App/Utilities/Src/bit_manipulation.o
+ .bss           0x00000000        0x0 ./App/Utilities/Src/bit_manipulation.o
+ .debug_info    0x00000000       0x22 ./App/Utilities/Src/bit_manipulation.o
+ .debug_abbrev  0x00000000       0x12 ./App/Utilities/Src/bit_manipulation.o
+ .debug_aranges
+                0x00000000       0x18 ./App/Utilities/Src/bit_manipulation.o
+ .debug_macro   0x00000000       0x1b ./App/Utilities/Src/bit_manipulation.o
+ .debug_macro   0x00000000      0xad8 ./App/Utilities/Src/bit_manipulation.o
+ .debug_line    0x00000000       0xb0 ./App/Utilities/Src/bit_manipulation.o
+ .debug_str     0x00000000     0x2eb7 ./App/Utilities/Src/bit_manipulation.o
+ .comment       0x00000000       0x44 ./App/Utilities/Src/bit_manipulation.o
+ .ARM.attributes
+                0x00000000       0x34 ./App/Utilities/Src/bit_manipulation.o
  .group         0x00000000        0xc ./Core/Src/main.o
  .group         0x00000000        0xc ./Core/Src/main.o
  .group         0x00000000        0xc ./Core/Src/main.o
@@ -5156,6 +5204,21 @@ Discarded input sections
  .debug_frame   0x00000000       0x2c /opt/st/stm32cubeide_1.19.0/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.13.3.rel1.linux64_1.0.0.202410170706/tools/bin/../lib/gcc/arm-none-eabi/13.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libc_nano.a(libc_a-sbrkr.o)
  .ARM.attributes
                 0x00000000       0x34 /opt/st/stm32cubeide_1.19.0/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.13.3.rel1.linux64_1.0.0.202410170706/tools/bin/../lib/gcc/arm-none-eabi/13.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libc_nano.a(libc_a-sbrkr.o)
+ .text          0x00000000        0x0 /opt/st/stm32cubeide_1.19.0/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.13.3.rel1.linux64_1.0.0.202410170706/tools/bin/../lib/gcc/arm-none-eabi/13.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libm.a(libm_a-wf_sqrt.o)
+ .data          0x00000000        0x0 /opt/st/stm32cubeide_1.19.0/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.13.3.rel1.linux64_1.0.0.202410170706/tools/bin/../lib/gcc/arm-none-eabi/13.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libm.a(libm_a-wf_sqrt.o)
+ .bss           0x00000000        0x0 /opt/st/stm32cubeide_1.19.0/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.13.3.rel1.linux64_1.0.0.202410170706/tools/bin/../lib/gcc/arm-none-eabi/13.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libm.a(libm_a-wf_sqrt.o)
+ .text.sqrtf    0x00000000       0x3c /opt/st/stm32cubeide_1.19.0/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.13.3.rel1.linux64_1.0.0.202410170706/tools/bin/../lib/gcc/arm-none-eabi/13.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libm.a(libm_a-wf_sqrt.o)
+ .debug_frame   0x00000000       0x38 /opt/st/stm32cubeide_1.19.0/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.13.3.rel1.linux64_1.0.0.202410170706/tools/bin/../lib/gcc/arm-none-eabi/13.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libm.a(libm_a-wf_sqrt.o)
+ .ARM.attributes
+                0x00000000       0x34 /opt/st/stm32cubeide_1.19.0/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.13.3.rel1.linux64_1.0.0.202410170706/tools/bin/../lib/gcc/arm-none-eabi/13.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libm.a(libm_a-wf_sqrt.o)
+ .text          0x00000000        0x0 /opt/st/stm32cubeide_1.19.0/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.13.3.rel1.linux64_1.0.0.202410170706/tools/bin/../lib/gcc/arm-none-eabi/13.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libm.a(libm_a-ef_sqrt.o)
+ .data          0x00000000        0x0 /opt/st/stm32cubeide_1.19.0/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.13.3.rel1.linux64_1.0.0.202410170706/tools/bin/../lib/gcc/arm-none-eabi/13.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libm.a(libm_a-ef_sqrt.o)
+ .bss           0x00000000        0x0 /opt/st/stm32cubeide_1.19.0/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.13.3.rel1.linux64_1.0.0.202410170706/tools/bin/../lib/gcc/arm-none-eabi/13.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libm.a(libm_a-ef_sqrt.o)
+ .text.__ieee754_sqrtf
+                0x00000000        0x6 /opt/st/stm32cubeide_1.19.0/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.13.3.rel1.linux64_1.0.0.202410170706/tools/bin/../lib/gcc/arm-none-eabi/13.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libm.a(libm_a-ef_sqrt.o)
+ .debug_frame   0x00000000       0x20 /opt/st/stm32cubeide_1.19.0/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.13.3.rel1.linux64_1.0.0.202410170706/tools/bin/../lib/gcc/arm-none-eabi/13.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libm.a(libm_a-ef_sqrt.o)
+ .ARM.attributes
+                0x00000000       0x34 /opt/st/stm32cubeide_1.19.0/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.13.3.rel1.linux64_1.0.0.202410170706/tools/bin/../lib/gcc/arm-none-eabi/13.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libm.a(libm_a-ef_sqrt.o)
  .data          0x00000000        0x0 /opt/st/stm32cubeide_1.19.0/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.13.3.rel1.linux64_1.0.0.202410170706/tools/bin/../lib/gcc/arm-none-eabi/13.3.1/thumb/v7e-m+fp/hard/libgcc.a(_aeabi_uldivmod.o)
  .bss           0x00000000        0x0 /opt/st/stm32cubeide_1.19.0/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.13.3.rel1.linux64_1.0.0.202410170706/tools/bin/../lib/gcc/arm-none-eabi/13.3.1/thumb/v7e-m+fp/hard/libgcc.a(_aeabi_uldivmod.o)
  .data          0x00000000        0x0 /opt/st/stm32cubeide_1.19.0/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.13.3.rel1.linux64_1.0.0.202410170706/tools/bin/../lib/gcc/arm-none-eabi/13.3.1/thumb/v7e-m+fp/hard/libgcc.a(_udivmoddi4.o)
@@ -5192,6 +5255,7 @@ LOAD ./App/IO/Src/light_sensor.o
 LOAD ./App/IO/Src/pi_comm.o
 LOAD ./App/IO/Src/pirs.o
 LOAD ./App/IO/Src/temp_humidity.o
+LOAD ./App/Utilities/Src/bit_manipulation.o
 LOAD ./Core/Src/main.o
 LOAD ./Core/Src/stm32f4xx_hal_msp.o
 LOAD ./Core/Src/stm32f4xx_it.o

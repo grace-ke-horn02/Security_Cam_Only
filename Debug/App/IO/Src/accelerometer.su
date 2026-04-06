@@ -1,0 +1,5 @@
+../App/IO/Src/accelerometer.c:103:5:accelerometerInitialization	40	static
+../App/IO/Src/accelerometer.c:169:13:getAccelerometerData	48	static
+../App/IO/Src/accelerometer.c:179:15:CompareAccelConfigStructs	16	static
+../App/IO/Src/accelerometer.c:215:13:GetAccelBasis	152	dynamic
+../App/IO/Src/accelerometer.c:322:13:readFifoBuffer	152	dynamic
