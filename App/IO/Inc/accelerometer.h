@@ -2,7 +2,7 @@
 #define __ACCELEROMETER_H
 
 /*includes */
-
+#include "status.h"
 
 /* Global variables */
 typedef struct {
@@ -13,8 +13,8 @@ typedef struct {
 
 
 /* Global Functions */
-int accelerometerInitialization(void);
+statusDefinition_enum accelerometerInitialization(void);
 accelData_s getAccelerometerData(void); //	Need to figure out what kind of data structure I want for this
 
 
-#endif __ACCELEROMETER_H
+#endif

@@ -1,5 +1,5 @@
-../App/IO/Src/accelerometer.c:103:5:accelerometerInitialization	4
-../App/IO/Src/accelerometer.c:169:13:getAccelerometerData	1
-../App/IO/Src/accelerometer.c:179:15:CompareAccelConfigStructs	9
-../App/IO/Src/accelerometer.c:215:13:GetAccelBasis	2
-../App/IO/Src/accelerometer.c:322:13:readFifoBuffer	2
+../App/IO/Src/accelerometer.c:104:23:accelerometerInitialization	13
+../App/IO/Src/accelerometer.c:199:13:getAccelerometerData	1
+../App/IO/Src/accelerometer.c:210:15:CompareAccelConfigStructs	9
+../App/IO/Src/accelerometer.c:246:13:GetAccelBasis	2
+../App/IO/Src/accelerometer.c:353:13:readFifoBuffer	2

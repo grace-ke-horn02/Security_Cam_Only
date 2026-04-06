@@ -3,6 +3,7 @@
 #include "bit_manipulation.h"
 #include "status.h"
 #include <stdbool.h>
+#include <math.h>
 
 /* Local type Definitions */
 
@@ -87,8 +88,8 @@ static accelConfiguration_t accelerometerConfig = {
 	.accelConfig= 0U, // 0000 0000
 	.fifoEnable= 8U, //0000 1000. FIFO is accelerometer data
 	.interruptPin= 48U, // 0011 0000 Int active high, push-pull, latched, clear on any read, no fsynch or bypass
-	.interruptEnable= 17U, // FIFO overflow interrupt is bit 4
-	.userCtrl= 64U, // 0100 0000 enable fifo, not master mode, i2c, fifo reset bit, i2c reset bit,
+	.interruptEnable= 0U, // FIFO overflow interrupt is bit 4. To enable - 17U
+	.userCtrl= 0U, // 0100 0000 enable fifo, not master mode, i2c, fifo reset bit, i2c reset bit. 64u AFTER INIT
 	.pwrMgmtOne= 0U, //0000 0000 clk source is internal. Initial configuration is fully on, not in cycle mode
 	.pwrMgmtTwo= 199U//199U, //1100 0111 LP wake ctrl is 3, all gyro in standby mode
 };
@@ -100,10 +101,10 @@ static void GetAccelBasis(void);
 
 // Global Function
 
-int accelerometerInitialization(void) {
+statusDefinition_enum accelerometerInitialization(void) {
 	uint8_t initReturnData;
 	HAL_StatusTypeDef returnStatus;
-	statusDefinition_enum accelStatus;
+	statusDefinition_enum accelStatus = 0U;
 
 	// First make sure that accelerometer is even on - if not return -1
 	returnStatus =  HAL_I2C_Mem_Read(&hi2c1, (ACCEL_ADDRESS << 1), WHO_AM_I, I2C_MEMADD_SIZE_8BIT, &initReturnData, 1, 100);
@@ -158,6 +159,35 @@ int accelerometerInitialization(void) {
 		return accelStatus; // Get out of this function
 	}
 
+
+
+	// Get the Basis
+	GetAccelBasis();
+
+	// error check - if values are zero is >4 there is an error
+	if ((p_xAxisData->basis ==0.0) || (p_xAxisData->basis > 4.0) || (p_xAxisData->basis < -4.0))
+	{
+		accelStatus = INITIALIZATION_FAILED;
+	}
+	if ((p_yAxisData->basis ==0.0) || (p_yAxisData->basis > 4.0) || (p_yAxisData->basis < -4.0))
+	{
+		accelStatus = INITIALIZATION_FAILED;
+	}
+	if ((p_zAxisData->basis ==0.0) || (p_zAxisData->basis > 4.0) || (p_zAxisData->basis < -4.0))
+	{
+		accelStatus = INITIALIZATION_FAILED;
+	}
+
+	// Got basis, now reset enable FIFO buffer, reset it, and enable accel
+	accelConfigurationResponse.interruptEnable = 17U;
+	accelConfigurationResponse.userCtrl= 64U;
+
+	returnStatus =  HAL_I2C_Mem_Read(&hi2c1, (ACCEL_ADDRESS << 1), INT_ENABLE, I2C_MEMADD_SIZE_8BIT, &accelConfigurationResponse.interruptEnable, 1, 100);
+	returnStatus =  HAL_I2C_Mem_Read(&hi2c1, (ACCEL_ADDRESS << 1), INT_ENABLE, I2C_MEMADD_SIZE_8BIT, &accelConfigurationResponse.userCtrl, 1, 100);
+
+	// now configure power management
+	accelConfigurationResponse.pwrMgmtOne = 0x28U; // 0010 1000 Put in cycle mode - sleep 0, cycle 1, temp sensor off
+
 	uint8_t fifoReset = 0x04 | accelerometerConfig.userCtrl;
 	//reset FIFO
 	returnStatus =  HAL_I2C_Mem_Write(&hi2c1, (ACCEL_ADDRESS << 1), USER_CTRL, I2C_MEMADD_SIZE_8BIT, &fifoReset, 1, 100);
@@ -168,6 +198,7 @@ int accelerometerInitialization(void) {
 
 accelData_s getAccelerometerData(void)
 {
+	readFifoBuffer();
 	accelData_s accelData = {p_xAxisData->lastFifoBufferAverage, p_yAxisData->lastFifoBufferAverage, p_zAxisData->lastFifoBufferAverage};
 	return accelData;
 }
@@ -389,8 +420,6 @@ static void readFifoBuffer(void){
 	uint8_t fifoReset = 0x04 | accelerometerConfig.userCtrl;
 	//reset FIFO
 	returnStatus =  HAL_I2C_Mem_Write(&hi2c1, (ACCEL_ADDRESS << 1), USER_CTRL, I2C_MEMADD_SIZE_8BIT, &fifoReset, 1, 100);
-
-
 
 }
 

@@ -17,6 +17,7 @@ UART_HandleTypeDef huart3;
 DMA_HandleTypeDef hdma_usart3_rx;
 DMA_HandleTypeDef hdma_usart3_tx;
 
+
 /**
   * @brief  This function is executed in case of error occurrence.
   * @retval None

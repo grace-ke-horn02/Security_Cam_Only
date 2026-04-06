@@ -18,16 +18,19 @@
 /* USER CODE END Header */
 /* Includes ------------------------------------------------------------------*/
 #include "main.h"
-#include "stm_hal.h"
 
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
-
+#include "accelerometer.h"
+#include "status.h"
+#include "stm_hal.h"
+#include "stm32f4xx_it.h"
+#include <stdbool.h>
 /* USER CODE END Includes */
 
 /* Private typedef -----------------------------------------------------------*/
 /* USER CODE BEGIN PTD */
-
+extern volatile bool accelDataReady;
 /* USER CODE END PTD */
 
 /* Private define ------------------------------------------------------------*/
@@ -41,14 +44,34 @@
 /* USER CODE END PM */
 
 /* Private variables ---------------------------------------------------------*/
-
+//ADC_HandleTypeDef hadc1;
+//
+//I2C_HandleTypeDef hi2c1;
+//
+//RTC_HandleTypeDef hrtc;
+//
+//SPI_HandleTypeDef hspi1;
+//
+//TIM_HandleTypeDef htim1;
+//
+//UART_HandleTypeDef huart3;
+//DMA_HandleTypeDef hdma_usart3_rx;
+//DMA_HandleTypeDef hdma_usart3_tx;
 
 /* USER CODE BEGIN PV */
 
 /* USER CODE END PV */
 
 /* Private function prototypes -----------------------------------------------*/
-
+//void SystemClock_Config(void);
+//static void MX_GPIO_Init(void);
+//static void MX_DMA_Init(void);
+//static void MX_I2C1_Init(void);
+//static void MX_RTC_Init(void);
+//static void MX_TIM1_Init(void);
+//static void MX_ADC1_Init(void);
+//static void MX_SPI1_Init(void);
+//static void MX_USART3_UART_Init(void);
 /* USER CODE BEGIN PFP */
 
 /* USER CODE END PFP */
@@ -96,6 +119,10 @@ int main(void)
   MX_USART3_UART_Init();
   /* USER CODE BEGIN 2 */
 
+  //initialize
+  statusDefinition_enum accelStatus = accelerometerInitialization();
+
+
   /* USER CODE END 2 */
 
   /* Infinite loop */
@@ -105,10 +132,30 @@ int main(void)
     /* USER CODE END WHILE */
 
     /* USER CODE BEGIN 3 */
+	  if (accelDataReady)
+	  {
+		  accelData_s currentAccelData = getAccelerometerData();
+		  accelDataReady = false;
+		  float x = currentAccelData.x_data;
+	  }
   }
   /* USER CODE END 3 */
 }
 
+/**
+  * @brief  This function is executed in case of error occurrence.
+  * @retval None
+  */
+//void Error_Handler(void)
+//{
+//  /* USER CODE BEGIN Error_Handler_Debug */
+//  /* User can add his own implementation to report the HAL error return state */
+//  __disable_irq();
+//  while (1)
+//  {
+//  }
+//  /* USER CODE END Error_Handler_Debug */
+//}
 #ifdef USE_FULL_ASSERT
 /**
   * @brief  Reports the name of the source file and the source line number

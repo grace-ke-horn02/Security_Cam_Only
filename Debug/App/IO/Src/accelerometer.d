@@ -1,5 +1,6 @@
 App/IO/Src/accelerometer.o: ../App/IO/Src/accelerometer.c \
  /home/graceke02/STM32CubeIDE/workspace_1.19.0/Security_Cam_Only/App/IO/Inc/accelerometer.h \
+ /home/graceke02/STM32CubeIDE/workspace_1.19.0/Security_Cam_Only/App/CmdProcessing/Inc/status.h \
  ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal.h \
  ../Core/Inc/stm32f4xx_hal_conf.h \
  ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_rcc.h \
@@ -36,9 +37,9 @@ App/IO/Src/accelerometer.o: ../App/IO/Src/accelerometer.c \
  ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_tim.h \
  ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_tim_ex.h \
  ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_uart.h \
- /home/graceke02/STM32CubeIDE/workspace_1.19.0/Security_Cam_Only/App/Utilities/Inc/bit_manipulation.h \
- /home/graceke02/STM32CubeIDE/workspace_1.19.0/Security_Cam_Only/App/CmdProcessing/Inc/status.h
+ /home/graceke02/STM32CubeIDE/workspace_1.19.0/Security_Cam_Only/App/Utilities/Inc/bit_manipulation.h
 /home/graceke02/STM32CubeIDE/workspace_1.19.0/Security_Cam_Only/App/IO/Inc/accelerometer.h:
+/home/graceke02/STM32CubeIDE/workspace_1.19.0/Security_Cam_Only/App/CmdProcessing/Inc/status.h:
 ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal.h:
 ../Core/Inc/stm32f4xx_hal_conf.h:
 ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_rcc.h:
@@ -76,4 +77,3 @@ App/IO/Src/accelerometer.o: ../App/IO/Src/accelerometer.c \
 ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_tim_ex.h:
 ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_uart.h:
 /home/graceke02/STM32CubeIDE/workspace_1.19.0/Security_Cam_Only/App/Utilities/Inc/bit_manipulation.h:
-/home/graceke02/STM32CubeIDE/workspace_1.19.0/Security_Cam_Only/App/CmdProcessing/Inc/status.h:
